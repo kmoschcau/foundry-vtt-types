@@ -10,7 +10,7 @@ declare type DeepPartial<T> = {
  * References the constructor of type `T`
  * @internal
  */
-type ConstructorOf<T> = new (...args: any) => T;
+type ConstructorOf<T> = new (...args: any[]) => T;
 
 /**
  * Omit properties of `T` which are of type `U`.

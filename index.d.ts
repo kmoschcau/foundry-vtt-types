@@ -4,6 +4,7 @@ import 'tinymce';
 import 'handlebars';
 import 'pixi.js';
 
+import './foundry/clientDocumentMixin';
 import './foundry/actorTokenHelpers';
 import './foundry/application';
 import './foundry/audioHelper';
