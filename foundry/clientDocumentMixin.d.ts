@@ -5,11 +5,11 @@
  * @augments abstract.Document
  */
 
-type ADocument = { data: unknown };
 declare function ClientDocumentMixin<T extends ADocument>(
   Base: ConstructorOf<T>
 ): ConstructorOf<T & ClientDocumentMixin<T>>;
-declare abstract class ClientDocumentMixin<T extends ADocument> {
+type ADocument = { data: unknown };
+declare abstract class ClientDocumentMixin<T extends ADocument> extends T {
   constructor(data: DeepPartial<T['data']>, context: Entity.CreateOptions);
 
   /**
@@ -89,7 +89,7 @@ declare abstract class ClientDocumentMixin<T extends ADocument> {
    * @return {string}
    * @memberof ClientDocumentMixin#
    */
-  get link(): `@${string}[${string}]{${string}}`;
+  get link(): string;
 
   /**
    * Return the permission level that the current game User has over this Document.
