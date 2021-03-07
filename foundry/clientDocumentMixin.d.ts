@@ -1,15 +1,19 @@
-/**
- * The client-side document mixin which is used to extend the common BaseDocument.
- * This mixin provides the client-side interface for database operations and common document behaviors.
- * @mixin
- * @augments abstract.Document
- */
+export {};
 
-declare function ClientDocumentMixin<T extends ADocument>(
-  Base: ConstructorOf<T>
-): ConstructorOf<T & ClientDocumentMixin<T>>;
+declare global {
+  /**
+   * The client-side document mixin which is used to extend the common BaseDocument.
+   * This mixin provides the client-side interface for database operations and common document behaviors.
+   * @mixin
+   * @augments abstract.Document
+   */
+  export function ClientDocumentMixin<T extends ADocument>(
+    Base: ConstructorOf<T>
+  ): ConstructorOf<T & ClientDocumentMixin<T>>;
+}
+
 type ADocument = { data: unknown };
-declare abstract class ClientDocumentMixin<T extends ADocument> extends T {
+declare abstract class ClientDocumentMixin<T extends ADocument = any> {
   constructor(data: DeepPartial<T['data']>, context: Entity.CreateOptions);
 
   /**

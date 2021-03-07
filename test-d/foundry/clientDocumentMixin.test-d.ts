@@ -15,4 +15,4 @@ expectType<boolean>(new TestClientDocument().foo);
 expectType<string>(new TestClientDocument().link);
 
 expectAssignable<TestDocument>(new TestClientDocument());
-expectAssignable<ClientDocumentMixin<any>>(new TestClientDocument());
+expectAssignable<InstanceType<ReturnType<typeof ClientDocumentMixin>>>(new TestClientDocument());
